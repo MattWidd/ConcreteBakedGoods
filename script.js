@@ -1,3 +1,4 @@
+//basket script
 document.addEventListener('DOMContentLoaded', () => {
     const basket = document.getElementById('basket');
     const basketBtn = document.getElementById('basket-btn');
@@ -47,18 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const shopLink = document.querySelector('a[href="#shop"]');
-shopLink.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent default anchor behavior
-    const shopSection = document.getElementById('shop');
-    const offset = 100; // Adjust this value to account for navbar height
-    const top = shopSection.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({
-        top: top,
-        behavior: 'smooth' // Smooth scroll
-    });
-});
-
 // Basket items array
 let basketItems = []; // Array to store items in the basket
 const basketItemsContainer = document.getElementById('basket-items'); // Container for displaying items
@@ -99,7 +88,7 @@ function updateBasketDisplay() {
     const totalPrice = basketItems.reduce((total, item) => total + (item.price * item.quantity), 0);
     totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
 }
-
+//basket contents
 function adjustQuantity(itemName, delta) {
     const itemIndex = basketItems.findIndex(item => item.name === itemName);
     if (itemIndex > -1) {
@@ -128,7 +117,29 @@ function showNotification(message) {
     }, 1000);
 }
 
+// Smooth scrolling function
+function smoothScroll(targetId, offset = 0) {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        const top = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({
+            top: top,
+            behavior: 'smooth' // Smooth scroll
+        });
+    }
+}
 
+// Add event listeners for all links with the "scroll-link" class
+document.querySelectorAll('.scroll-link').forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default anchor behavior
+        const targetId = link.getAttribute('data-target'); // Get the target section ID
+        const offset = targetId === 'shop' ? 100 : 0; // Apply offset only for 'shop'
+        smoothScroll(targetId, offset);
+    });
+});
+
+//select goods items from shop
 document.addEventListener('DOMContentLoaded', () => {
     const goodsElements = document.querySelectorAll('.goods');
 
@@ -149,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
+//checkout Section
 document.addEventListener('DOMContentLoaded', () => {
     const checkoutBtn = document.getElementById('checkout-btn');
     const modal = document.getElementById('checkout-modal');
@@ -157,19 +168,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Open modal on button click
     checkoutBtn.addEventListener('click', () => {
-        modal.style.display = 'flex';
+        modal.style.display = 'grid';
+        basket.classList.remove('active');
+            setTimeout(() => {
+                basket.style.visibility = 'hidden'; // Set visibility hidden after fade-out
+                isBasketVisible = false; // Update the state
+            }, 500);
     });
 
     // Close modal on close button click
     closeButton.addEventListener('click', () => {
         modal.style.display = 'none';
-    });
-
-    // Close modal when clicking outside of modal content
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
     });
 
     // Handle form submission

@@ -12,11 +12,11 @@
 
 <body>
     <nav class="navbar">
-        <a href="#banner" class="logo" >Concrete</a>
+        <a href="#banner" id="logo" class="scroll-link" data-target="banner">Concrete</a>
         <ul class="nav-links">
-            <li><a href="#shop">Shop</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#shop"  class="scroll-link" data-target="shop">Shop</a></li>
+            <li><a href="#about"  class="scroll-link" data-target="about">About</a></li>
+            <li><a href="#contact"  class="scroll-link" data-target="contact">Contact</a></li>
             <li><button id="basket-btn">Basket</button></li>
         </ul>
     </nav>
@@ -31,15 +31,15 @@
         <div class="products" id="shop">
             <div class="goods Croissant" onclick="addItemToBasket('Croissant', 2.50)">
                 <div class="div1 divbox"><h2>Croissant</h2></div>
-                <div class="div2 divbox"><h3>Baddest</h3></div>
+                <div class="div2 divbox"><h3>Add to basket</h3></div>
             </div>
             <div class="goods pan" onclick="addItemToBasket('Pan Au Chocolat', 3.00)">
                 <div class="div1 divbox"><h2>Pan Au Chocolat</h2></div>
-                <div class="div2 divbox"><h3>OF Them</h3></div>
+                <div class="div2 divbox"><h3>Add to basket</h3></div>
             </div>
             <div class="goods Eclair" onclick="addItemToBasket('Eclair', 2.00)">
                 <div class="div1 divbox"><h2>Eclair</h2></div>
-                <div class="div2 divbox"><h3>All</h3></div>
+                <div class="div2 divbox"><h3>Add to basket</h3></div>
             </div>
         </div>
 
@@ -54,12 +54,12 @@
             <h1>Meet the crew</h1>
             <div class="thecrew">
                 <div class="crew">
-                    <h2>John</h2>
-                    <img src="images/images.jpg" alt="John">
-                </div>
-                <div class="crew">
                     <h2>Karen</h2>
                     <img src="images/images 2.jpg" alt="Karen">
+                </div>
+                <div class="crew">
+                    <h2>John</h2>
+                    <img src="images/images.jpg" alt="John">
                 </div>
                 <div class="crew">
                     <h2>Bob</h2>
@@ -79,12 +79,12 @@
         </div>
 
         <div class="checkout-modal" id="checkout-modal">
-            <span class="close-button">&times;</span>
-            <h2>Checkout</h2>
-            <form>
+            <h2 id="checkhead">Checkout</h2>
+            <span class="close-button" id="close-checkout">&times;</span>
+            <form id="check-o-form">
                 <!-- User Details Section -->
                 <div class="form-section" id="yourdetails">
-                    <h3>Billing Details</h3>
+                    <h3 class="form-heads">Billing Details</h3>
                     <label for="name">Full Name:</label>
                     <input type="text" id="name" name="name" required>
       
@@ -95,7 +95,7 @@
                     <input type="text" id="address" name="address" required>
                 </div>
                 <div id="paymentdetails">
-                  <h3>Payment Details</h3>
+                  <h3 class="form-heads">Payment Details</h3>
                   <label for="card-number">Card Number:</label>
                   <input type="text" id="card-number" name="card-number" required>
       

@@ -1,3 +1,4 @@
+/** Global Styles **/
 html {
     font-family: "Rubik Mono One", monospace;
 }
@@ -6,6 +7,7 @@ body {
     margin: auto;
 }
 
+/** Navigation Bar **/
 nav {
     display: flex;
     max-width: 100%;
@@ -19,7 +21,7 @@ nav {
     text-decoration: none;
 }
 
-.logo {
+#logo {
     margin-left: 30px;
     font-size: larger;
     text-align: center;
@@ -58,6 +60,7 @@ nav li {
     margin: 0 20px;
 }
 
+/** Basket Styles **/
 #basket {
     position: fixed;
     top: 10px;
@@ -102,7 +105,22 @@ nav li {
     background-color: rgb(197, 188, 176) /* Darker green on hover */
 }
 
+#checkout-btn {
+    padding: 10px 20px; /* Style the button */
+    background-color: antiquewhite;
+    color: grey;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
+#checkout-btn:hover {
+    background-color: rgb(206, 197, 184);
+}
+
+
+/** Main Content **/
 main {
     margin: 0px;
 }
@@ -119,6 +137,11 @@ main {
     color: antiquewhite;
 }
 
+.employees {
+    color: antiquewhite;
+}
+
+/** Product Section **/
 .products {
     display: flex;
     justify-content: space-around;
@@ -164,6 +187,7 @@ main {
     width: 27%;
 }
 
+/** About Section **/
 .about {
     height: 600px;
     width: 100%;
@@ -191,6 +215,7 @@ main {
     margin-right: 50px;
 }
 
+/** Employee Section **/
 .employees {
     width: 100%;
     height: 420px;
@@ -206,37 +231,79 @@ main {
     margin: auto;
 }
 
-.crew img {
-    border-radius: 20px;
+.crew {
+    height: 300px;
+    width: 150px;
+    overflow: hidden;
 }
 
+.crew img {
+    height: 70%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/** Checkout Modal **/
 .checkout-modal {
     position:fixed;
-    background-color: rgb(246, 235, 222);
+    background-color: rgba(61, 61, 61, 0.9);
+    color: antiquewhite;
     top: 10px;
     justify-self: center;
-    width:80%;
-    height: 90%;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    width:100%;
+    height: 100%;
     z-index: 2000;
     display: none;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    left: 10%;
-    border-radius: 5%;
-    box-shadow: 0 2px 4px rgba(0, 4, 4, 0.7);
+    box-shadow: 0 2px 4px rgba(0, 4, 4, 0.8);
+}
+
+#checkhead {
+    grid-column: 6/8;
+    grid-row: 1;   
+    justify-self: center; 
+    align-self: center; 
+    font-size: 300%;
+}
+
+#close-checkout {
+    grid-column: 12; /* Place in the last column */
+    grid-row: 1;    /* Place in the first row */
+    justify-self: center; /* Align to the end horizontally */
+    align-self: center; /* Align to the top vertically */
+}
+
+#check-o-form {
+    display:grid;
+    grid-column: 2/12;
+    grid-row: 2/4;   
+    grid-template-columns: 1fr, 1fr;
+    justify-self: center; 
+    align-self: start;
+    background-color: rgb(59, 59, 59);
+    box-shadow: 0 2px 4px rgba(0, 4, 4, 0.8);
 }
 
 .form-section {
 text-align: center;
 }
 
+.form-heads {
+    justify-self: center;
+}
+
 #yourdetails {
-    justify-self: left;
+    justify-self: center;
+    grid-column: span 2;
 }
 
 #paymentdetails {
-    justify-self: right;
+    justify-self: center;
+    grid-column: span 2;
 }
 
 .close-button {
@@ -253,10 +320,24 @@ text-align: center;
     cursor: pointer;
 }
 
-.submit {
-    align-self: center;
+#submit {
+    grid-column: 2; /* Make the submit button span across both columns */
+    justify-self: center; /* Center the button horizontally */
+    align-self: center; /* Optional: Center the button vertically */
+    padding: 10px 20px; /* Style the button */
+    background-color: antiquewhite;
+    color: grey;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
+#submit:hover {
+    background-color: rgb(206, 197, 184);
+}
+
+/** Footer **/
 footer {
     background-color: rgba(54, 54, 54, 0.861);
     color: antiquewhite;
