@@ -347,3 +347,97 @@ footer {
     margin: auto;
     text-align: center;
 }
+
+/*responsive design*/
+
+/* Mobile devices (max-width: 600px) */
+@media (max-width: 600px) {
+    #logo {
+        display: none;
+    }
+    nav {
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 5px;
+    }
+    
+    #logo {
+        margin: 10px 0;
+        font-size: medium;
+    }
+    
+    nav ul {
+        display: flex; /* Arrange nav items in a row */
+        justify-content: space-evenly; /* Equal spacing */
+        flex-grow: 1; /* Spread items across the full width */
+        padding: 0;
+        margin: 0;
+    }
+    
+    nav li {
+        margin: 0;
+    }
+    main {
+        width: 150%;
+    } 
+
+    .banner {
+        height: 300px;
+    }
+
+    .goods {
+        width: 25%;
+        margin: 10px auto;
+    }
+
+    .goods h2 {
+        font-size: 1em;
+    }
+
+    .aboutus {
+        width: 80%;
+        height: auto;
+    }
+
+    .employees {
+        flex-direction: column;
+    }
+
+    footer {
+        min-height: 150px;
+        width: 150%;
+    }
+}
+
+/* Tablet devices (601px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 15px;
+    }
+
+    #logo {
+        font-size: large;
+    }
+
+    .banner {
+        height: 400px;
+        font-size: larger;
+    }
+
+    .goods {
+        width: 45%;
+        margin: 10px;
+    }
+
+    .aboutus {
+        width: 80%;
+        height: auto;
+    }
+
+    .employees {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
